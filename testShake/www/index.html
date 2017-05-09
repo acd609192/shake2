@@ -25,7 +25,7 @@ document.addEventListener(
     "deviceready", 
     function () {
         var myShakeEvent = new Shake({
-            threshold: 10
+            threshold: 1
         });
         // alert(JSON.stringify(myShakeEvent));
         myShakeEvent.start();
@@ -33,8 +33,24 @@ document.addEventListener(
         window.addEventListener(
             'shake', 
             function () {
+                var animal=["貓","狗","大象","老鼠","松鼠","魚","烏龜"];
+                var r = Math.floor( Math.random() * animal.length );
+                var n = animal[r];
+                var food=["貓飼料","狗飼料","大象飼料","老鼠飼料","松鼠飼料","魚飼料","烏龜飼料"];
+                var p = Math.floor( Math.random() * food.length );
+                var q = food[p];
                 navigator.notification.beep(1);
-                alert("Shake!!")
+                alert(n+"eat"+q)
+            if(q==n+"飼料"){
+             alert("飼養成功")
+            }else{
+             alert(n+"離家出走")
+            }
+              
+                       
+                        
+                       
+               
             }, 
             false);
         // alert("Done");
@@ -46,7 +62,7 @@ document.addEventListener(
 
 <body>
 
-    <p>Shake to test this application!</p>
+    <p>想養什麼寵物並餵食!</p>
 
 </body>
 </html>
